@@ -13,113 +13,113 @@ Public Repo For Sysadmins and other people
 
 #### Установка клиента
 
-> Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
->
-> ```bash
-> # Проверяем версию дистрибутива linux
-> lsb_release -a
->  
-> # Выбираем русскую локаль для старых версий Debian
-> dpkg-reconfigure locales # lang 372 
->  
-> # или для современных
-> localectl set-locale LANG=ru_RU.utf8 
-> localectl status
-> ```
->
-> Устанавливаем сам агент
->
-> ```bash
-> # apt-get install zabbix-agent
-> # nano /etc/zabbix/zabbix_agent.conf
-> Server=127.0.0.1, zabbix.filatovz.ru 
-> ServerActive=zabbix.filatovz.ru 
-> LogFileSize=10 
-> LogFile=/var/log/zabbix/zabbix_agentd.log 
-> PidFile=/run/zabbix/zabbix_agentd.pid 
-> EnableRemoteCommands=1 
-> Timeout=30 
-> Hostname=server_name
-> ```
->
-> Добавим zabbix в sudoers
->
-> ```bash
-> # nano /etc/sudoers
-> zabbix ALL=(ALL) NOPASSWD: ALL
-> ```
->
-> Установим zabbix как службу systemd
->
-> `sudo nano /lib/systemd/system/zabbix-agent.service`
->
-> ```
-> [Unit] 
->  
-> Description=Zabbix Agent 
-> After=syslog.target 
-> After=network.target 
->  
-> [Service] 
->  
-> Environment="CONFFILE=/etc/zabbix/zabbix_agentd.conf" 
-> EnvironmentFile=-/etc/default/zabbix-agent 
-> Type=forking 
-> Restart=on-failure 
-> PIDFile=/run/zabbix/zabbix_agentd.pid
-> KillMode=control-group 
-> ExecStart=/usr/sbin/zabbix_agentd -c $CONFFILE 
-> ExecStop=/bin/kill -SIGTERM $MAINPID 
-> RestartSec=10s 
-> ```
->
-> `systemctl daemon-reload`
->
-> [Дополнительные сведения по установке](https://www.zabbix.com/documentation/4.0/ru/manual/installation/install_from_packages/debian_ubuntu)
+Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
+
+ ```bash
+ # Проверяем версию дистрибутива linux
+ lsb_release -a
+  
+ # Выбираем русскую локаль для старых версий Debian
+ dpkg-reconfigure locales # lang 372 
+  
+ # или для современных
+ localectl set-locale LANG=ru_RU.utf8 
+ localectl status
+ ```
+
+ Устанавливаем сам агент
+
+ ```bash
+ # apt-get install zabbix-agent
+ # nano /etc/zabbix/zabbix_agent.conf
+ Server=127.0.0.1, zabbix.filatovz.ru 
+ ServerActive=zabbix.filatovz.ru 
+ LogFileSize=10 
+ LogFile=/var/log/zabbix/zabbix_agentd.log 
+ PidFile=/run/zabbix/zabbix_agentd.pid 
+ EnableRemoteCommands=1 
+ Timeout=30 
+ Hostname=server_name
+ ```
+
+ Добавим zabbix в sudoers
+
+ ```bash
+ # nano /etc/sudoers
+ zabbix ALL=(ALL) NOPASSWD: ALL
+ ```
+
+ Установим zabbix как службу systemd
+
+ `sudo nano /lib/systemd/system/zabbix-agent.service`
+
+ ```
+ [Unit] 
+  
+ Description=Zabbix Agent 
+ After=syslog.target 
+ After=network.target 
+  
+ [Service] 
+  
+ Environment="CONFFILE=/etc/zabbix/zabbix_agentd.conf" 
+ EnvironmentFile=-/etc/default/zabbix-agent 
+ Type=forking 
+ Restart=on-failure 
+ PIDFile=/run/zabbix/zabbix_agentd.pid
+ KillMode=control-group 
+ ExecStart=/usr/sbin/zabbix_agentd -c $CONFFILE 
+ ExecStop=/bin/kill -SIGTERM $MAINPID 
+ RestartSec=10s 
+ ```
+
+ `systemctl daemon-reload`
+
+ [Дополнительные сведения по установке](https://www.zabbix.com/documentation/4.0/ru/manual/installation/install_from_packages/debian_ubuntu)
 
 #### Установка сервера zabbix
 
-> https://serveradmin.ru/ustanovka-i-nastroyka-zabbix-3-4-na-debian-9/
->
-> **Zabbix-postgres docker-compose.yml**
->
-> ```yaml
-> version: '3.1' 
-> services: 
->   postgres: 
->     image: postgres 
->     restart: always 
->     environment: 
->       POSTGRES_USER: zabbix 
->       POSTGRES_PASSWORD: zabbix 
->       POSTGRES_DB: zabbix 
->   zabbix-server: 
->     image: zabbix/zabbix-server-pgsql 
->     restart: always 
->     environment: 
->       DB_SERVER_HOST: postgres 
->       POSTGRES_USER: zabbix 
->       POSTGRES_PASSWORD: zabbix 
->       POSTGRES_DB: zabbix 
->     depends_on: 
->       - postgres 
->   zabbix-web: 
->     image: zabbix/zabbix-web-nginx-pgsql 
->     restart: always 
->     environment: 
->       ZBX_SERVER_HOST: zabbix-server 
->       DB_SERVER_HOST: postgres 
->       POSTGRES_USER: zabbix 
->       POSTGRES_PASSWORD: zabbix 
->       POSTGRES_DB: zabbix 
->     depends_on: 
->       - postgres 
->       - zabbix-server 
->     ports: 
->       - 8080:80 
-> ```
->
-> 
+ https://serveradmin.ru/ustanovka-i-nastroyka-zabbix-3-4-na-debian-9/
+
+ **Zabbix-postgres docker-compose.yml**
+
+ ```yaml
+ version: '3.1' 
+ services: 
+   postgres: 
+     image: postgres 
+     restart: always 
+     environment: 
+       POSTGRES_USER: zabbix 
+       POSTGRES_PASSWORD: zabbix 
+       POSTGRES_DB: zabbix 
+   zabbix-server: 
+     image: zabbix/zabbix-server-pgsql 
+     restart: always 
+     environment: 
+       DB_SERVER_HOST: postgres 
+       POSTGRES_USER: zabbix 
+       POSTGRES_PASSWORD: zabbix 
+       POSTGRES_DB: zabbix 
+     depends_on: 
+       - postgres 
+   zabbix-web: 
+     image: zabbix/zabbix-web-nginx-pgsql 
+     restart: always 
+     environment: 
+       ZBX_SERVER_HOST: zabbix-server 
+       DB_SERVER_HOST: postgres 
+       POSTGRES_USER: zabbix 
+       POSTGRES_PASSWORD: zabbix 
+       POSTGRES_DB: zabbix 
+     depends_on: 
+       - postgres 
+       - zabbix-server 
+     ports: 
+       - 8080:80 
+ ```
+
+ 
 
 #### zabbix docker-compose
 
@@ -223,8 +223,8 @@ WantedBy=multi-user.target
 
 ### Ротация логов
 
-> Эта служба необходима для того, чтобы архивировать старые логи или удалять их с какой-то переодичностью.
-> Базовые настройки хранятся здесь: ''/etc/logrotate.conf''
+ Эта служба необходима для того, чтобы архивировать старые логи или удалять их с какой-то переодичностью.
+ Базовые настройки хранятся здесь: ''/etc/logrotate.conf''
 
 Пример ротации конкретного файла:
 
@@ -238,7 +238,7 @@ compress      # сжимать ротируемый файл
 delaycompress # сжимать предыдущий файл при следующей ротации
 missingok     # отсутствие файла не является ошибкой
 postrotate    # скрипт будет выполнен сразу после ротации
-fail2ban-client set logtarget /var/log/fail2ban.log >/dev/null
+fail2ban-client set logtarget /var/log/fail2ban.log /dev/null
 endscript
 
 # If fail2ban runs as non-root it still needs to have write access
@@ -284,7 +284,7 @@ else {
     echo 'Не отправлено'; 
 } 
 
-?> 
+? 
 ```
 
 ### PYTHON
