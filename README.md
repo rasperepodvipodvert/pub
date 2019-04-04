@@ -9,6 +9,12 @@ Public Repo For Sysadmins and other people
 
 ## SOFT
 
+### DUPLICATI
+
+[Статья по установке](https://www.techgrube.de/tutorials/homeserver-nas-mit-ubuntu-18-04-teil-7-backups-mit-duplicati-und-rsnapshot)
+
+
+
 ### ZABBIX
 
 #### Установка клиента
@@ -34,7 +40,7 @@ Public Repo For Sysadmins and other people
 ##### Устанавливаем сам агент
 
 ```bash
-wget https://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2+​stretch_all.deb
+wget https://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2%2Bstretch_all.deb
 dpkg -i zabbix-release_4.0-2+​stretch_all.deb
 apt update
 apt-get install zabbix-agent
