@@ -17,6 +17,8 @@ Public Repo For Sysadmins and other people
 
 #### Различные способы переадрессации
 
+[Источник](https://afirewall.ru/redirekt-s-http-na-https-htaccess-ciklicheskaya-pereadresaciya)
+
 ##### .htaccess
 
 ```apache
@@ -86,11 +88,11 @@ Hostname=server_name
  zabbix ALL=(ALL) NOPASSWD: ALL
  ```
 
- Установим zabbix как службу systemd
+#####  Установим zabbix как службу systemd
 
  `sudo nano /lib/systemd/system/zabbix-agent.service`
 
- ```bash
+ ```ini
  [Unit] 
   
  Description=Zabbix Agent 
@@ -112,11 +114,15 @@ Hostname=server_name
 
  `systemctl daemon-reload`
 
-#### Установка сервера zabbix
+#### Установка сервера
 
  https://serveradmin.ru/ustanovka-i-nastroyka-zabbix-3-4-na-debian-9/
 
- **Zabbix-postgres docker-compose.yml**
+####  Установка сервера для docker-compose
+
+[Инструкция](https://github.com/zabbix/zabbix-docker)
+
+**Zabbix-postgres docker-compose.yml**
 
  ```yaml
  version: '3.1' 
@@ -153,14 +159,6 @@ Hostname=server_name
      ports: 
        - 8080:80 
  ```
-
- 
-
-#### zabbix docker-compose
-
-Инструкция
-
-https://github.com/zabbix/zabbix-docker
 
 ### KODI
 
