@@ -15,7 +15,10 @@ Public Repo For Sysadmins and other people
 
 Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
 
+##### Подготовка
+
  ```bash
+
  # Проверяем версию дистрибутива linux
  lsb_release -a
   
@@ -27,11 +30,19 @@ Public Repo For Sysadmins and other people
  localectl status
  ```
 
- Устанавливаем сам агент
+#####  Устанавливаем сам агент
+
+```bash
+wget https://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2+​stretch_all.deb
+dpkg -i zabbix-release_4.0-2+​stretch_all.deb
+apt update
+apt-get install zabbix-agent
+```
+
+##### Правим конфиг агента
 
  ```bash
- # apt-get install zabbix-agent
- # nano /etc/zabbix/zabbix_agent.conf
+# nano /etc/zabbix/zabbix_agent.conf
  Server=127.0.0.1, zabbix.filatovz.ru 
  ServerActive=zabbix.filatovz.ru 
  LogFileSize=10 
@@ -53,7 +64,7 @@ Public Repo For Sysadmins and other people
 
  `sudo nano /lib/systemd/system/zabbix-agent.service`
 
- ```
+ ```bash
  [Unit] 
   
  Description=Zabbix Agent 
