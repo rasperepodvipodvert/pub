@@ -13,7 +13,8 @@ Public Repo For Sysadmins and other people
 
 #### Установка клиента
 
-Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
+> Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
+[Дополнительные сведения по установке](https://www.zabbix.com/documentation/4.0/ru/manual/installation/install_from_packages/debian_ubuntu)
 
 ##### Подготовка
 
@@ -30,7 +31,7 @@ Public Repo For Sysadmins and other people
  localectl status
  ```
 
-#####  Устанавливаем сам агент
+##### Устанавливаем сам агент
 
 ```bash
 wget https://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2+​stretch_all.deb
@@ -43,17 +44,17 @@ apt-get install zabbix-agent
 
  ```bash
 # nano /etc/zabbix/zabbix_agent.conf
- Server=127.0.0.1, zabbix.filatovz.ru 
- ServerActive=zabbix.filatovz.ru 
- LogFileSize=10 
- LogFile=/var/log/zabbix/zabbix_agentd.log 
- PidFile=/run/zabbix/zabbix_agentd.pid 
- EnableRemoteCommands=1 
- Timeout=30 
- Hostname=server_name
+Server=127.0.0.1, zabbix.filatovz.ru 
+ServerActive=zabbix.filatovz.ru 
+LogFileSize=10 
+LogFile=/var/log/zabbix/zabbix_agentd.log 
+PidFile=/run/zabbix/zabbix_agentd.pid 
+EnableRemoteCommands=1 
+Timeout=30 
+Hostname=server_name
  ```
 
- Добавим zabbix в sudoers
+#####  Добавим zabbix в sudoers
 
  ```bash
  # nano /etc/sudoers
@@ -85,8 +86,6 @@ apt-get install zabbix-agent
  ```
 
  `systemctl daemon-reload`
-
- [Дополнительные сведения по установке](https://www.zabbix.com/documentation/4.0/ru/manual/installation/install_from_packages/debian_ubuntu)
 
 #### Установка сервера zabbix
 
@@ -139,6 +138,10 @@ apt-get install zabbix-agent
 https://github.com/zabbix/zabbix-docker
 
 ## OS
+
+### KODI
+
+[Установка и настройка Quasar на Kodi](https://niklan.net/blog/146)
 
 ### ssh
 
