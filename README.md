@@ -13,6 +13,25 @@ Public Repo For Sysadmins and other people
 
 [Статья по установке](https://www.techgrube.de/tutorials/homeserver-nas-mit-ubuntu-18-04-teil-7-backups-mit-duplicati-und-rsnapshot)
 
+### APACHE
+
+#### Различные способы переадрессации
+
+##### .htaccess
+
+```apache
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]</pre>
+```
+или
+```apache
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+```
+
 
 
 ### ZABBIX
@@ -143,8 +162,6 @@ Hostname=server_name
 
 https://github.com/zabbix/zabbix-docker
 
-## OS
-
 ### KODI
 
 [Установка и настройка Quasar на Kodi](https://niklan.net/blog/146)
@@ -152,6 +169,10 @@ https://github.com/zabbix/zabbix-docker
 ### ssh
 
 [Практические советы, примеры и туннели SSH](https://habr.com/ru/post/435546/)
+
+## OS
+
+Linux команды
 
 ## HW
 
