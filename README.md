@@ -9,6 +9,11 @@ Public Repo For Sysadmins and other people
 
 ## SOFT
 
+### WINDOWS
+
+- [Узнать размер папок (Scanner)](http://www.steffengerlach.de/freeware/scn2.zip)
+- 
+
 ### DUPLICATI
 
 [Статья по установке](https://www.techgrube.de/tutorials/homeserver-nas-mit-ubuntu-18-04-teil-7-backups-mit-duplicati-und-rsnapshot)
