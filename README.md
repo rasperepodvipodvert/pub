@@ -173,6 +173,10 @@ Hostname=server_name
 
 [Практические советы, примеры и туннели SSH](https://habr.com/ru/post/435546/)
 
+### PROXMOX
+
+- [virtio-drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso)
+
 ## OS
 
 Linux команды
