@@ -1,0 +1,1 @@
+\\192.168.27.251\tmp\invent_comp\invent_comp.vbs
