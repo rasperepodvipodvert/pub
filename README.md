@@ -177,6 +177,23 @@ Hostname=server_name
 
 - [virtio-drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso)
 
+### WINE
+#### Install on Linux Mint 19.3
+
+```bash
+sudo dpkg --add-architecture i386
+wget -qO- https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+sudo apt-add-repository 'deb http://dl.winehq.org/wine-builds/ubuntu/ bionic main' #(if you bionic error, type `xenial`)
+sudo apt-get install --install-recommends winehq-stable
+wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/bin/winetricks
+# config wine
+
+winetricks --force dotnet452
+# for keepass
+wget -q -O /tmp/libpng12.deb http://se.archive.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_i386.deb
+dpkg -i /tmp/libpng12.deb
+```
+
 ## OS
 
 Linux команды
