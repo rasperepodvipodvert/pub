@@ -1,32 +1,62 @@
-<!-- TOC -->autoauto- [1. PUB](#1-pub)auto    - [1.1. SOFT](#11-soft)auto        - [1.1.1. WINDOWS](#111-windows)auto        - [1.1.2. DUPLICATI](#112-duplicati)auto        - [1.1.3. APACHE](#113-apache)auto            - [1.1.3.1. Различные способы переадрессации](#1131-различные-способы-переадрессации)auto                - [1.1.3.1.1. htaccess](#11311-htaccess)auto        - [1.1.4. ZABBIX](#114-zabbix)auto            - [1.1.4.1. Установка клиента](#1141-установка-клиента)auto                - [1.1.4.1.1. Подготовка](#11411-подготовка)auto                - [1.1.4.1.2. Устанавливаем сам агент](#11412-устанавливаем-сам-агент)auto                - [1.1.4.1.3. Правим конфиг агента](#11413-правим-конфиг-агента)auto- [2. nano /etc/zabbix/zabbix_agent.conf](#2-nano-etczabbixzabbix_agentconf)auto                - [2.0.4.1.4. Добавим zabbix в sudoers](#20414-добавим-zabbix-в-sudoers)auto                - [2.0.4.1.5. Установим zabbix как службу systemd](#20415-установим-zabbix-как-службу-systemd)auto            - [2.0.4.2. Установка сервера](#2042-установка-сервера)auto            - [2.0.4.3. Установка сервера для docker-compose](#2043-установка-сервера-для-docker-compose)auto        - [2.0.5. KODI](#205-kodi)auto        - [2.0.6. ssh](#206-ssh)auto        - [2.0.7. PROXMOX](#207-proxmox)auto        - [2.0.8. WINE](#208-wine)auto            - [2.0.8.1. Install on Linux Mint 19.3](#2081-install-on-linux-mint-193)auto    - [2.1. OS](#21-os)auto    - [2.2. HW](#22-hw)auto    - [2.3. DevOps](#23-devops)auto        - [2.3.1. Docker](#231-docker)auto            - [2.3.1.1. Установка Docker + Docker-Compose](#2311-установка-docker--docker-compose)auto            - [2.3.1.2. Docker-Compose как systemd сервис](#2312-docker-compose-как-systemd-сервис)auto        - [2.3.2. Ротация логов](#232-ротация-логов)auto        - [2.3.3. Права на файлы](#233-права-на-файлы)auto    - [2.4. DEVELOP](#24-develop)auto        - [2.4.1. PHP](#241-php)auto            - [2.4.1.1. Проверка отправки почты через sendmail](#2411-проверка-отправки-почты-через-sendmail)auto        - [2.4.2. PYTHON](#242-python)auto            - [2.4.2.1. Ссылки](#2421-ссылки)auto        - [2.4.3. BITRIX](#243-bitrix)auto            - [2.4.3.1. Ссылки](#2431-ссылки)autoauto<!-- /TOC -->
-
-# 1. PUB
+# PUB
+<a id="markdown-pub" name="pub"></a>
 Public Repo For Sysadmins and other people
+<!-- TOC -->
 
-Сначала вел документацию на WIKI (dockuwiki) сейчас же перешел на GitHUB.
+- [1. SOFT](#1-soft)
+    - [1.1. WINDOWS](#11-windows)
+    - [1.2. DUPLICATI](#12-duplicati)
+    - [1.3. APACHE](#13-apache)
+        - [1.3.1. Различные способы переадрессации](#131-различные-способы-переадрессации)
+    - [1.4. ZABBIX](#14-zabbix)
+        - [1.4.1. Установка клиента](#141-установка-клиента)
+        - [1. Установка сервера](#1-установка-сервера)
+        - [2. Установка сервера для docker-compose](#2-установка-сервера-для-docker-compose)
+    - [1.5. KODI](#15-kodi)
+    - [1.6. ssh](#16-ssh)
+    - [1.7. PROXMOX](#17-proxmox)
+    - [1.8. WINE](#18-wine)
+        - [1.8.1. Install on Linux Mint 19.3](#181-install-on-linux-mint-193)
+- [2. OS](#2-os)
+- [3. DevOps](#3-devops)
+    - [3.1. Docker](#31-docker)
+        - [3.1.1. Установка Docker + Docker-Compose](#311-установка-docker--docker-compose)
+        - [3.1.2. Docker-Compose как systemd сервис](#312-docker-compose-как-systemd-сервис)
+    - [3.2. Ротация логов](#32-ротация-логов)
+    - [3.3. Права на файлы](#33-права-на-файлы)
+- [4. DEVELOP](#4-develop)
+    - [4.1. PHP](#41-php)
+        - [4.1.1. Проверка отправки почты через sendmail](#411-проверка-отправки-почты-через-sendmail)
+    - [4.2. PYTHON](#42-python)
+        - [4.2.1. Ссылки](#421-ссылки)
+    - [4.3. BITRIX](#43-bitrix)
+        - [4.3.1. Ссылки](#431-ссылки)
 
-[TOC]
+<!-- /TOC -->
 
 
+## 1. SOFT
+<a id="markdown-soft" name="soft"></a>
 
-## 1.1. SOFT
-
-### 1.1.1. WINDOWS
+### 1.1. WINDOWS
+<a id="markdown-windows" name="windows"></a>
 
 - [Узнать размер папок (Scanner)](http://www.steffengerlach.de/freeware/scn2.zip)
-- 
 
-### 1.1.2. DUPLICATI
+### 1.2. DUPLICATI
+<a id="markdown-duplicati" name="duplicati"></a>
 
 [Статья по установке](https://www.techgrube.de/tutorials/homeserver-nas-mit-ubuntu-18-04-teil-7-backups-mit-duplicati-und-rsnapshot)
 
-### 1.1.3. APACHE
+### 1.3. APACHE
+<a id="markdown-apache" name="apache"></a>
 
-#### 1.1.3.1. Различные способы переадрессации
+#### 1.3.1. Различные способы переадрессации
+<a id="markdown-различные-способы-переадрессации" name="различные-способы-переадрессации"></a>
 
 [Источник](https://afirewall.ru/redirekt-s-http-na-https-htaccess-ciklicheskaya-pereadresaciya)
 
-##### 1.1.3.1.1. htaccess
+##### 1.3.1.1. htaccess
 
 ```apache
 RewriteEngine On
@@ -43,14 +73,16 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 
 
-### 1.1.4. ZABBIX
+### 1.4. ZABBIX
+<a id="markdown-zabbix" name="zabbix"></a>
 
-#### 1.1.4.1. Установка клиента
+#### 1.4.1. Установка клиента
+<a id="markdown-установка-клиента" name="установка-клиента"></a>
 
 > Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
 [Дополнительные сведения по установке](https://www.zabbix.com/documentation/4.0/ru/manual/installation/install_from_packages/debian_ubuntu)
 
-##### 1.1.4.1.1. Подготовка
+##### 1.4.1.1. Подготовка
 
  ```bash
 
@@ -65,7 +97,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
  localectl status
  ```
 
-##### 1.1.4.1.2. Устанавливаем сам агент
+##### 1.4.1.2. Устанавливаем сам агент
 
 ```bash
 wget https://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2%2Bstretch_all.deb
@@ -74,10 +106,12 @@ apt update
 apt-get install zabbix-agent
 ```
 
-##### 1.1.4.1.3. Правим конфиг агента
+##### 1.4.1.3. Правим конфиг агента
 
  ```bash
-# 2. nano /etc/zabbix/zabbix_agent.conf
+
+# nano /etc/zabbix/zabbix_agent.conf
+<a id="markdown-nano-etczabbixzabbixagentconf" name="nano-etczabbixzabbixagentconf"></a>
 Server=127.0.0.1, zabbix.filatovz.ru 
 ServerActive=zabbix.filatovz.ru 
 LogFileSize=10 
@@ -88,14 +122,14 @@ Timeout=30
 Hostname=server_name
  ```
 
-##### 2.0.4.1.4. Добавим zabbix в sudoers
+##### 1. Добавим zabbix в sudoers
 
  ```bash
  # nano /etc/sudoers
  zabbix ALL=(ALL) NOPASSWD: ALL
  ```
 
-##### 2.0.4.1.5. Установим zabbix как службу systemd
+##### 2. Установим zabbix как службу systemd
 
  `sudo nano /lib/systemd/system/zabbix-agent.service`
 
@@ -121,11 +155,13 @@ Hostname=server_name
 
  `systemctl daemon-reload`
 
-#### 2.0.4.2. Установка сервера
+#### 1. Установка сервера
+<a id="markdown-установка-сервера" name="установка-сервера"></a>
 
  https://serveradmin.ru/ustanovka-i-nastroyka-zabbix-3-4-na-debian-9/
 
-#### 2.0.4.3. Установка сервера для docker-compose
+#### 2. Установка сервера для docker-compose
+<a id="markdown-установка-сервера-для-docker-compose" name="установка-сервера-для-docker-compose"></a>
 
 [Инструкция](https://github.com/zabbix/zabbix-docker)
 
@@ -167,20 +203,26 @@ Hostname=server_name
        - 8080:80 
  ```
 
-### 2.0.5. KODI
+### 1.5. KODI
+<a id="markdown-kodi" name="kodi"></a>
 
 [Установка и настройка Quasar на Kodi](https://niklan.net/blog/146)
 
-### 2.0.6. ssh
+### 1.6. ssh
+<a id="markdown-ssh" name="ssh"></a>
 
 [Практические советы, примеры и туннели SSH](https://habr.com/ru/post/435546/)
 
-### 2.0.7. PROXMOX
+### 1.7. PROXMOX
+<a id="markdown-proxmox" name="proxmox"></a>
 
 - [virtio-drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso)
 
-### 2.0.8. WINE
-#### 2.0.8.1. Install on Linux Mint 19.3
+### 1.8. WINE
+<a id="markdown-wine" name="wine"></a>
+
+#### 1.8.1. Install on Linux Mint 19.3
+<a id="markdown-install-on-linux-mint-193" name="install-on-linux-mint-193"></a>
 
 ```bash
 sudo dpkg --add-architecture i386
@@ -196,19 +238,21 @@ wget -q -O /tmp/libpng12.deb http://se.archive.ubuntu.com/ubuntu/pool/main/libp/
 dpkg -i /tmp/libpng12.deb
 ```
 
-## 2.1. OS
+## 2. OS
+<a id="markdown-os" name="os"></a>
 
 Linux команды
 
-## 2.2. HW
-
 [Настройка ИБП](http://geckich.blogspot.com/2012/10/low-battery-ups-nut-network-ups-tools.html)
 
-## 2.3. DevOps
+## 3. DevOps
+<a id="markdown-devops" name="devops"></a>
 
-### 2.3.1. Docker
+### 3.1. Docker
+<a id="markdown-docker" name="docker"></a>
 
-#### 2.3.1.1. Установка Docker + Docker-Compose
+#### 3.1.1. Установка Docker + Docker-Compose
+<a id="markdown-установка-docker--docker-compose" name="установка-docker--docker-compose"></a>
 
 ```bash
 apt update && apt install git curl -y 
@@ -222,7 +266,8 @@ mkdir /docker
 cd /docker
 ```
 
-#### 2.3.1.2. Docker-Compose как systemd сервис
+#### 3.1.2. Docker-Compose как systemd сервис
+<a id="markdown-docker-compose-как-systemd-сервис" name="docker-compose-как-systemd-сервис"></a>
 
 ```
 /etc/compose/docker-compose.yml - Compose file describing what to deploy 
@@ -288,7 +333,8 @@ WantedBy=multi-user.target
 
 
 
-### 2.3.2. Ротация логов
+### 3.2. Ротация логов
+<a id="markdown-ротация-логов" name="ротация-логов"></a>
 
 Эта служба необходима для того, чтобы архивировать старые логи или удалять их с какой-то переодичностью.
 Базовые настройки хранятся здесь: ''/etc/logrotate.conf''
@@ -328,18 +374,22 @@ create 640 root adm # сразу после ротации создать пус
 
 ```
 
-### 2.3.3. Права на файлы
+### 3.3. Права на файлы
+<a id="markdown-права-на-файлы" name="права-на-файлы"></a>
 
 ```bash
 find /var/www/test.com/public_html -type d -exec chmod 0770 {} \;
 find /var/www/test.com/public_html -type f -exec chmod 0660 {} \;
 ```
 
-## 2.4. DEVELOP
+## 4. DEVELOP
+<a id="markdown-develop" name="develop"></a>
 
-### 2.4.1. PHP
+### 4.1. PHP
+<a id="markdown-php" name="php"></a>
 
-#### 2.4.1.1. Проверка отправки почты через sendmail
+#### 4.1.1. Проверка отправки почты через sendmail
+<a id="markdown-проверка-отправки-почты-через-sendmail" name="проверка-отправки-почты-через-sendmail"></a>
 
 ```php
 [<?php]() 
@@ -354,12 +404,17 @@ else {
 ? 
 ```
 
-### 2.4.2. PYTHON
+### 4.2. PYTHON
+<a id="markdown-python" name="python"></a>
 
-#### 2.4.2.1. Ссылки
+#### 4.2.1. Ссылки
+<a id="markdown-ссылки" name="ссылки"></a>
 
 [Мега-Учебник FLASK](https://habr.com/post/346306/)
 
-### 2.4.3. BITRIX
-#### 2.4.3.1. Ссылки
+### 4.3. BITRIX
+<a id="markdown-bitrix" name="bitrix"></a>
+
+#### 4.3.1. Ссылки
+<a id="markdown-ссылки" name="ссылки"></a>
 [Инструменты для разработки под 1С-Битрикс](https://habr.com/en/sandbox/73214/)
