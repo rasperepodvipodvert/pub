@@ -1,36 +1,45 @@
-# PUB
-<a id="markdown-pub" name="pub"></a>
-Public Repo For Sysadmins and other people
+# Public Repo For Sysadmins and other people
+<a id="markdown-public-repo-for-sysadmins-and-other-people" name="public-repo-for-sysadmins-and-other-people"></a>
 <!-- TOC -->
 
-- [1. SOFT](#1-soft)
+- [Public Repo For Sysadmins and other people](#public-repo-for-sysadmins-and-other-people)
+  - [1. SOFT](#1-soft)
     - [1.1. WINDOWS](#11-windows)
     - [1.2. DUPLICATI](#12-duplicati)
     - [1.3. APACHE](#13-apache)
-        - [1.3.1. Различные способы переадрессации](#131-различные-способы-переадрессации)
+      - [1.3.1. Различные способы переадрессации](#131-Различные-способы-переадрессации)
+        - [1.3.1.1. htaccess](#1311-htaccess)
     - [1.4. ZABBIX](#14-zabbix)
-        - [1.4.1. Установка клиента](#141-установка-клиента)
-        - [1. Установка сервера](#1-установка-сервера)
-        - [2. Установка сервера для docker-compose](#2-установка-сервера-для-docker-compose)
+      - [1.4.1. Установка клиента](#141-Установка-клиента)
+        - [1.4.1.1. Подготовка](#1411-Подготовка)
+        - [1.4.1.2. Устанавливаем сам агент](#1412-Устанавливаем-сам-агент)
+        - [1.4.1.3. Правим конфиг агента](#1413-Правим-конфиг-агента)
+        - [1. Добавим zabbix в sudoers](#1-Добавим-zabbix-в-sudoers)
+        - [2. Установим zabbix как службу systemd](#2-Установим-zabbix-как-службу-systemd)
+      - [1. Установка сервера](#1-Установка-сервера)
+      - [2. Установка сервера для docker-compose](#2-Установка-сервера-для-docker-compose)
     - [1.5. KODI](#15-kodi)
     - [1.6. ssh](#16-ssh)
     - [1.7. PROXMOX](#17-proxmox)
     - [1.8. WINE](#18-wine)
-        - [1.8.1. Install on Linux Mint 19.3](#181-install-on-linux-mint-193)
-- [2. OS](#2-os)
-- [3. DevOps](#3-devops)
+      - [1.8.1. Install on Linux Mint 19.3](#181-install-on-linux-mint-193)
+  - [2. OS](#2-os)
+  - [3. DevOps](#3-devops)
     - [3.1. Docker](#31-docker)
-        - [3.1.1. Установка Docker + Docker-Compose](#311-установка-docker--docker-compose)
-        - [3.1.2. Docker-Compose как systemd сервис](#312-docker-compose-как-systemd-сервис)
-    - [3.2. Ротация логов](#32-ротация-логов)
-    - [3.3. Права на файлы](#33-права-на-файлы)
-- [4. DEVELOP](#4-develop)
+      - [3.1.1. Установка Docker + Docker-Compose](#311-Установка-docker--docker-compose)
+      - [3.1.2. Docker-Compose как systemd сервис](#312-docker-compose-как-systemd-сервис)
+    - [3.2. Ротация логов](#32-Ротация-логов)
+    - [3.3. Права на файлы](#33-Права-на-файлы)
+  - [4. DEVELOP](#4-develop)
     - [4.1. PHP](#41-php)
-        - [4.1.1. Проверка отправки почты через sendmail](#411-проверка-отправки-почты-через-sendmail)
+      - [4.1.1. Проверка отправки почты через sendmail](#411-Проверка-отправки-почты-через-sendmail)
     - [4.2. PYTHON](#42-python)
-        - [4.2.1. Ссылки](#421-ссылки)
+      - [4.2.1. Ссылки](#421-Ссылки)
     - [4.3. BITRIX](#43-bitrix)
-        - [4.3.1. Ссылки](#431-ссылки)
+      - [4.3.1. Ссылки](#431-Ссылки)
+  - [5. Написание документации](#5-Написание-документации)
+    - [5.1. Софт + плагины](#51-Софт--плагины)
+      - [5.1.1. Visual Studio Code](#511-visual-studio-code)
 
 <!-- /TOC -->
 
@@ -401,7 +410,7 @@ else {
     echo 'Не отправлено'; 
 } 
 
-? 
+?>
 ```
 
 ### 4.2. PYTHON
@@ -418,3 +427,14 @@ else {
 #### 4.3.1. Ссылки
 <a id="markdown-ссылки" name="ссылки"></a>
 [Инструменты для разработки под 1С-Битрикс](https://habr.com/en/sandbox/73214/)
+
+## 5. Написание документации
+<a id="markdown-написание-документации" name="написание-документации"></a>
+
+### 5.1. Софт + плагины
+<a id="markdown-софт--плагины" name="софт--плагины"></a>
+
+#### 5.1.1. Visual Studio Code
+<a id="markdown-visual-studio-code" name="visual-studio-code"></a>
+- [Auto MarkdownTOC](https://github.com/huntertran/markdown-toc)
+- [Markdown All in One](https://github.com/yzhang-gh/vscode-markdown)
