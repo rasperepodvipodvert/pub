@@ -358,3 +358,6 @@ else {
 
 [Мега-Учебник FLASK](https://habr.com/post/346306/)
 
+### BITRIX
+#### Ссылки
+[Инструменты для разработки под 1С-Битрикс](https://habr.com/en/sandbox/73214/)
