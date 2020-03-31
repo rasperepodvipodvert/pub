@@ -24,7 +24,7 @@
     - [1.8. WINE](#18-wine)
       - [1.8.1. Install on Linux Mint 19.3](#181-install-on-linux-mint-193)
   - [2. OS](#2-os)
-  - [3. DevOps](#3-devops)
+  - [3. DEVOPS](#3-devops)
     - [3.1. Docker](#31-docker)
       - [3.1.1. Установка Docker + Docker-Compose](#311-Установка-docker--docker-compose)
       - [3.1.2. Docker-Compose как systemd сервис](#312-docker-compose-как-systemd-сервис)
@@ -254,7 +254,7 @@ Linux команды
 
 [Настройка ИБП](http://geckich.blogspot.com/2012/10/low-battery-ups-nut-network-ups-tools.html)
 
-## 3. DevOps
+## 3. DEVOPS
 <a id="markdown-devops" name="devops"></a>
 
 ### 3.1. Docker
@@ -401,7 +401,7 @@ find /var/www/test.com/public_html -type f -exec chmod 0660 {} \;
 <a id="markdown-проверка-отправки-почты-через-sendmail" name="проверка-отправки-почты-через-sendmail"></a>
 
 ```php
-[<?php]() 
+<?php
 
 if (mail("ivan@filatovz1.ru", "заголовок", "текст")) { 
     echo 'Отправлено'; 
