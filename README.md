@@ -1,4 +1,6 @@
-# PUB
+<!-- TOC -->autoauto- [1. PUB](#1-pub)auto    - [1.1. SOFT](#11-soft)auto        - [1.1.1. WINDOWS](#111-windows)auto        - [1.1.2. DUPLICATI](#112-duplicati)auto        - [1.1.3. APACHE](#113-apache)auto            - [1.1.3.1. Различные способы переадрессации](#1131-различные-способы-переадрессации)auto                - [1.1.3.1.1. htaccess](#11311-htaccess)auto        - [1.1.4. ZABBIX](#114-zabbix)auto            - [1.1.4.1. Установка клиента](#1141-установка-клиента)auto                - [1.1.4.1.1. Подготовка](#11411-подготовка)auto                - [1.1.4.1.2. Устанавливаем сам агент](#11412-устанавливаем-сам-агент)auto                - [1.1.4.1.3. Правим конфиг агента](#11413-правим-конфиг-агента)auto- [2. nano /etc/zabbix/zabbix_agent.conf](#2-nano-etczabbixzabbix_agentconf)auto                - [2.0.4.1.4. Добавим zabbix в sudoers](#20414-добавим-zabbix-в-sudoers)auto                - [2.0.4.1.5. Установим zabbix как службу systemd](#20415-установим-zabbix-как-службу-systemd)auto            - [2.0.4.2. Установка сервера](#2042-установка-сервера)auto            - [2.0.4.3. Установка сервера для docker-compose](#2043-установка-сервера-для-docker-compose)auto        - [2.0.5. KODI](#205-kodi)auto        - [2.0.6. ssh](#206-ssh)auto        - [2.0.7. PROXMOX](#207-proxmox)auto        - [2.0.8. WINE](#208-wine)auto            - [2.0.8.1. Install on Linux Mint 19.3](#2081-install-on-linux-mint-193)auto    - [2.1. OS](#21-os)auto    - [2.2. HW](#22-hw)auto    - [2.3. DevOps](#23-devops)auto        - [2.3.1. Docker](#231-docker)auto            - [2.3.1.1. Установка Docker + Docker-Compose](#2311-установка-docker--docker-compose)auto            - [2.3.1.2. Docker-Compose как systemd сервис](#2312-docker-compose-как-systemd-сервис)auto        - [2.3.2. Ротация логов](#232-ротация-логов)auto        - [2.3.3. Права на файлы](#233-права-на-файлы)auto    - [2.4. DEVELOP](#24-develop)auto        - [2.4.1. PHP](#241-php)auto            - [2.4.1.1. Проверка отправки почты через sendmail](#2411-проверка-отправки-почты-через-sendmail)auto        - [2.4.2. PYTHON](#242-python)auto            - [2.4.2.1. Ссылки](#2421-ссылки)auto        - [2.4.3. BITRIX](#243-bitrix)auto            - [2.4.3.1. Ссылки](#2431-ссылки)autoauto<!-- /TOC -->
+
+# 1. PUB
 Public Repo For Sysadmins and other people
 
 Сначала вел документацию на WIKI (dockuwiki) сейчас же перешел на GitHUB.
@@ -7,24 +9,24 @@ Public Repo For Sysadmins and other people
 
 
 
-## SOFT
+## 1.1. SOFT
 
-### WINDOWS
+### 1.1.1. WINDOWS
 
 - [Узнать размер папок (Scanner)](http://www.steffengerlach.de/freeware/scn2.zip)
 - 
 
-### DUPLICATI
+### 1.1.2. DUPLICATI
 
 [Статья по установке](https://www.techgrube.de/tutorials/homeserver-nas-mit-ubuntu-18-04-teil-7-backups-mit-duplicati-und-rsnapshot)
 
-### APACHE
+### 1.1.3. APACHE
 
-#### Различные способы переадрессации
+#### 1.1.3.1. Различные способы переадрессации
 
 [Источник](https://afirewall.ru/redirekt-s-http-na-https-htaccess-ciklicheskaya-pereadresaciya)
 
-##### .htaccess
+##### 1.1.3.1.1. htaccess
 
 ```apache
 RewriteEngine On
@@ -41,14 +43,14 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 
 
-### ZABBIX
+### 1.1.4. ZABBIX
 
-#### Установка клиента
+#### 1.1.4.1. Установка клиента
 
 > Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
 [Дополнительные сведения по установке](https://www.zabbix.com/documentation/4.0/ru/manual/installation/install_from_packages/debian_ubuntu)
 
-##### Подготовка
+##### 1.1.4.1.1. Подготовка
 
  ```bash
 
@@ -63,7 +65,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
  localectl status
  ```
 
-##### Устанавливаем сам агент
+##### 1.1.4.1.2. Устанавливаем сам агент
 
 ```bash
 wget https://repo.zabbix.com/zabbix/4.0/debian/pool/main/z/zabbix-release/zabbix-release_4.0-2%2Bstretch_all.deb
@@ -72,10 +74,10 @@ apt update
 apt-get install zabbix-agent
 ```
 
-##### Правим конфиг агента
+##### 1.1.4.1.3. Правим конфиг агента
 
  ```bash
-# nano /etc/zabbix/zabbix_agent.conf
+# 2. nano /etc/zabbix/zabbix_agent.conf
 Server=127.0.0.1, zabbix.filatovz.ru 
 ServerActive=zabbix.filatovz.ru 
 LogFileSize=10 
@@ -86,14 +88,14 @@ Timeout=30
 Hostname=server_name
  ```
 
-#####  Добавим zabbix в sudoers
+##### 2.0.4.1.4. Добавим zabbix в sudoers
 
  ```bash
  # nano /etc/sudoers
  zabbix ALL=(ALL) NOPASSWD: ALL
  ```
 
-#####  Установим zabbix как службу systemd
+##### 2.0.4.1.5. Установим zabbix как службу systemd
 
  `sudo nano /lib/systemd/system/zabbix-agent.service`
 
@@ -119,11 +121,11 @@ Hostname=server_name
 
  `systemctl daemon-reload`
 
-#### Установка сервера
+#### 2.0.4.2. Установка сервера
 
  https://serveradmin.ru/ustanovka-i-nastroyka-zabbix-3-4-na-debian-9/
 
-####  Установка сервера для docker-compose
+#### 2.0.4.3. Установка сервера для docker-compose
 
 [Инструкция](https://github.com/zabbix/zabbix-docker)
 
@@ -165,20 +167,20 @@ Hostname=server_name
        - 8080:80 
  ```
 
-### KODI
+### 2.0.5. KODI
 
 [Установка и настройка Quasar на Kodi](https://niklan.net/blog/146)
 
-### ssh
+### 2.0.6. ssh
 
 [Практические советы, примеры и туннели SSH](https://habr.com/ru/post/435546/)
 
-### PROXMOX
+### 2.0.7. PROXMOX
 
 - [virtio-drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso)
 
-### WINE
-#### Install on Linux Mint 19.3
+### 2.0.8. WINE
+#### 2.0.8.1. Install on Linux Mint 19.3
 
 ```bash
 sudo dpkg --add-architecture i386
@@ -194,19 +196,19 @@ wget -q -O /tmp/libpng12.deb http://se.archive.ubuntu.com/ubuntu/pool/main/libp/
 dpkg -i /tmp/libpng12.deb
 ```
 
-## OS
+## 2.1. OS
 
 Linux команды
 
-## HW
+## 2.2. HW
 
 [Настройка ИБП](http://geckich.blogspot.com/2012/10/low-battery-ups-nut-network-ups-tools.html)
 
-## DevOps
+## 2.3. DevOps
 
-### Docker
+### 2.3.1. Docker
 
-#### Установка Docker + Docker-Compose
+#### 2.3.1.1. Установка Docker + Docker-Compose
 
 ```bash
 apt update && apt install git curl -y 
@@ -220,7 +222,7 @@ mkdir /docker
 cd /docker
 ```
 
-#### Docker-Compose как systemd сервис
+#### 2.3.1.2. Docker-Compose как systemd сервис
 
 ```
 /etc/compose/docker-compose.yml - Compose file describing what to deploy 
@@ -286,7 +288,7 @@ WantedBy=multi-user.target
 
 
 
-### Ротация логов
+### 2.3.2. Ротация логов
 
 Эта служба необходима для того, чтобы архивировать старые логи или удалять их с какой-то переодичностью.
 Базовые настройки хранятся здесь: ''/etc/logrotate.conf''
@@ -326,18 +328,18 @@ create 640 root adm # сразу после ротации создать пус
 
 ```
 
-### Права на файлы
+### 2.3.3. Права на файлы
 
 ```bash
 find /var/www/test.com/public_html -type d -exec chmod 0770 {} \;
 find /var/www/test.com/public_html -type f -exec chmod 0660 {} \;
 ```
 
-## DEVELOP
+## 2.4. DEVELOP
 
-### PHP
+### 2.4.1. PHP
 
-#### Проверка отправки почты через sendmail
+#### 2.4.1.1. Проверка отправки почты через sendmail
 
 ```php
 [<?php]() 
@@ -352,12 +354,12 @@ else {
 ? 
 ```
 
-### PYTHON
+### 2.4.2. PYTHON
 
-#### Ссылки
+#### 2.4.2.1. Ссылки
 
 [Мега-Учебник FLASK](https://habr.com/post/346306/)
 
-### BITRIX
-#### Ссылки
+### 2.4.3. BITRIX
+#### 2.4.3.1. Ссылки
 [Инструменты для разработки под 1С-Битрикс](https://habr.com/en/sandbox/73214/)
