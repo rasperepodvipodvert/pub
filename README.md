@@ -9,6 +9,7 @@
     - [1.3. APACHE](#13-apache)
       - [1.3.1. Различные способы переадрессации](#131-Различные-способы-переадрессации)
         - [1.3.1.1. htaccess](#1311-htaccess)
+      - [1.3.2. Анализ Логов](#132-Анализ-Логов)
     - [1.4. ZABBIX](#14-zabbix)
       - [1.4.1. Установка клиента](#141-Установка-клиента)
         - [1.4.1.1. Подготовка](#1411-Подготовка)
@@ -80,7 +81,13 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ```
 
+#### 1.3.2. Анализ Логов
+<a id="markdown-анализ-логов" name="анализ-логов"></a>
 
+```bash
+cat /var/log/apache2/access.log | cut -d " " -f 1 | sort | uniq -c | sort -n -r | head -n 10
+zcat /var/log/apache2/access.log.*.gz | cut -d " " -f 1 | sort | uniq -c | sort -n -r | head -n 10
+```
 
 ### 1.4. ZABBIX
 <a id="markdown-zabbix" name="zabbix"></a>
