@@ -25,6 +25,8 @@
     - [1.8. WINE](#18-wine)
       - [1.8.1. Install on Linux Mint 19.3](#181-install-on-linux-mint-193)
   - [2. OS](#2-os)
+    - [2.1. Linux команды](#21-linux-команды)
+    - [2.2. Journalctl - дистрибутивы с systemd](#22-journalctl---дистрибутивы-с-systemd)
   - [3. DEVOPS](#3-devops)
     - [3.1. Docker](#31-docker)
       - [3.1.1. Установка Docker + Docker-Compose](#311-Установка-docker--docker-compose)
@@ -91,6 +93,8 @@ zcat /var/log/apache2/access.log.*.gz | cut -d " " -f 1 | sort | uniq -c | sort 
 
 ### 1.4. ZABBIX
 <a id="markdown-zabbix" name="zabbix"></a>
+
+- [Обновление zabbix до 4.4](https://www.zabbix.com/documentation/current/ru/manual/installation/upgrade/packages/debian_ubuntu)
 
 #### 1.4.1. Установка клиента
 <a id="markdown-установка-клиента" name="установка-клиента"></a>
@@ -257,9 +261,29 @@ dpkg -i /tmp/libpng12.deb
 ## 2. OS
 <a id="markdown-os" name="os"></a>
 
-Linux команды
+### 2.1. Linux команды
+<a id="markdown-linux-команды" name="linux-команды"></a>
 
-[Настройка ИБП](http://geckich.blogspot.com/2012/10/low-battery-ups-nut-network-ups-tools.html)
+- [Настройка ИБП](http://geckich.blogspot.com/2012/10/low-battery-ups-nut-network-ups-tools.html)
+
+### 2.2. Journalctl - дистрибутивы с systemd
+<a id="markdown-journalctl---дистрибутивы-с-systemd" name="journalctl---дистрибутивы-с-systemd"></a>
+
+```bash
+# Показать ошибки
+journalctl -p err
+
+# Показать логи в реальном времени
+journalctl -f
+
+# Логи за определенную дату
+journalctl --since=2016-12-20
+journalctl --since=2016-12-20 --until=2016-12-21
+
+# Лог конкретного сервиса
+journalctl -b -u zabbix-agent.service
+
+```
 
 ## 3. DEVOPS
 <a id="markdown-devops" name="devops"></a>
