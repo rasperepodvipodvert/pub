@@ -11,7 +11,8 @@
         - [1.3.1.1. htaccess](#1311-htaccess)
       - [1.3.2. Анализ Логов](#132-Анализ-Логов)
     - [1.4. ZABBIX](#14-zabbix)
-      - [1.4.1. Установка клиента](#141-Установка-клиента)
+      - [1.4.1. Шаблоны (Templates)](#141-Шаблоны-templates)
+      - [1.4.2. Установка клиента](#142-Установка-клиента)
         - [1.4.1.1. Подготовка](#1411-Подготовка)
         - [1.4.1.2. Устанавливаем сам агент](#1412-Устанавливаем-сам-агент)
         - [1.4.1.3. Правим конфиг агента](#1413-Правим-конфиг-агента)
@@ -94,9 +95,14 @@ zcat /var/log/apache2/access.log.*.gz | cut -d " " -f 1 | sort | uniq -c | sort 
 ### 1.4. ZABBIX
 <a id="markdown-zabbix" name="zabbix"></a>
 
-- [Обновление zabbix до 4.4](https://www.zabbix.com/documentation/current/ru/manual/installation/upgrade/packages/debian_ubuntu)
+- [Обновление zabbix до 4.4 (debian)](https://www.zabbix.com/documentation/current/ru/manual/installation/upgrade/packages/debian_ubuntu)
 
-#### 1.4.1. Установка клиента
+#### 1.4.1. Шаблоны (Templates)
+<a id="markdown-шаблоны-templates" name="шаблоны-templates"></a>
+- Веб-сервер | [инструкция](https://serveradmin.ru/monitoring-web-servera-nginx-i-php-fpm-v-zabbix/#_nginx) | [шаблон](./SOFT/zabbix/zabbix-nginx-template.xml)
+- ssh-auth | [инструкция](https://serveradmin.ru/monitoring-ssh-loginov-v-zabbix/#__SSH) | [шаблон](./SOFT/zabbix/ssh-auth.xml)
+
+#### 1.4.2. Установка клиента
 <a id="markdown-установка-клиента" name="установка-клиента"></a>
 
 > Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
