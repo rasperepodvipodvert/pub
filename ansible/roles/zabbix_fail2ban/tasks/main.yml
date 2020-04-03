@@ -1,0 +1,26 @@
+---
+  - name: copy systemd overide.conf for fail2ban.service
+    copy:
+      src: override.conf
+      dest: /etc/systemd/system/fail2ban.service.d/
+      owner: root
+      group: root
+  - name: restart fail2ban.services
+    systemd:
+      name: fail2ban
+      state: restarted
+      daemon_reload: yes
+  - name: create direktory /etc/zabbix/zabbix_agentd.d
+    file:
+      path: /etc/zabbix/zabbix_agentd.d
+      state: directory
+      recurse: yes
+  - name: get file2ban.conf for zabbix-agent
+    get_url:
+      url: https://raw.githubusercontent.com/rasperepodvipodvert/zabbix-fail2ban-discovery-/master/fail2ban.conf
+      dest: /etc/zabbix/zabbix_agentd.d/fail2ban.conf
+  - name: restart zabbix-agent
+    systemd:
+      name: zabbix-agent
+      state: restarted
+      daemon_reload: yes

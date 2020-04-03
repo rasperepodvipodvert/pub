@@ -1,0 +1,5 @@
+---
+  - hosts: atlant1.ru
+    become: yes
+    roles:
+      - zabbix_fail2ban
