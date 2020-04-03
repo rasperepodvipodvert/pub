@@ -112,6 +112,7 @@ zcat /var/log/apache2/access.log.*.gz | cut -d " " -f 1 | sort | uniq -c | sort 
 
 - Веб-сервер | [инструкция](https://serveradmin.ru/monitoring-web-servera-nginx-i-php-fpm-v-zabbix/#_nginx) | [шаблон](./SOFT/zabbix/zabbix-nginx-template.xml)
 - ssh-auth | [инструкция](https://serveradmin.ru/monitoring-ssh-loginov-v-zabbix/#__SSH) | [шаблон](./SOFT/zabbix/ssh-auth.xml)
+- fail2ban | [git](https://github.com/rasperepodvipodvert/zabbix-fail2ban-discovery-)
 
 #### 1.4.2. Установка клиента
 <a id="markdown-установка-клиента" name="установка-клиента"></a>
