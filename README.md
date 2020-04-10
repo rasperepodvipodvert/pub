@@ -1,5 +1,4 @@
 # Public Repo For Sysadmins and other people
-<a id="markdown-public-repo-for-sysadmins-and-other-people" name="public-repo-for-sysadmins-and-other-people"></a>
 
 <!-- TOC -->
 
@@ -32,6 +31,7 @@
       - [2.1.1. Journalctl - дистрибутивы с systemd](#211-journalctl---дистрибутивы-с-systemd)
       - [2.1.2. contains a file system with errors check forced](#212-contains-a-file-system-with-errors-check-forced)
       - [2.1.3. Включаем SWAP в файле](#213-Включаем-swap-в-файле)
+      - [2.1.4. Выключаем IPv6 (debian)](#214-Выключаем-ipv6-debian)
   - [3. DEVOPS](#3-devops)
     - [3.1. Docker](#31-docker)
       - [3.1.1. Установка Docker + Docker-Compose](#311-Установка-docker--docker-compose)
@@ -53,27 +53,22 @@
 <!-- /TOC -->
 
 ## 1. SOFT
-<a id="markdown-soft" name="soft"></a>
 
 
 ### 1.1. WINDOWS
-<a id="markdown-windows" name="windows"></a>
 
 
 - [Узнать размер папок (Scanner)](http://www.steffengerlach.de/freeware/scn2.zip)
 
 ### 1.2. DUPLICATI
-<a id="markdown-duplicati" name="duplicati"></a>
 
 
 [Статья по установке](https://www.techgrube.de/tutorials/homeserver-nas-mit-ubuntu-18-04-teil-7-backups-mit-duplicati-und-rsnapshot)
 
 ### 1.3. APACHE
-<a id="markdown-apache" name="apache"></a>
 
 
 #### 1.3.1. Различные способы переадрессации
-<a id="markdown-различные-способы-переадрессации" name="различные-способы-переадрессации"></a>
 
 
 [Источник](https://afirewall.ru/redirekt-s-http-na-https-htaccess-ciklicheskaya-pereadresaciya)
@@ -96,7 +91,6 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ```
 
 #### 1.3.2. Анализ Логов
-<a id="markdown-анализ-логов" name="анализ-логов"></a>
 
 
 ```bash
@@ -105,13 +99,11 @@ zcat /var/log/apache2/access.log.*.gz | cut -d " " -f 1 | sort | uniq -c | sort 
 ```
 
 ### 1.4. ZABBIX
-<a id="markdown-zabbix" name="zabbix"></a>
 
 
 - [Обновление zabbix до 4.4 (debian)](https://www.zabbix.com/documentation/current/ru/manual/installation/upgrade/packages/debian_ubuntu)
 
 #### 1.4.1. Шаблоны (Templates)
-<a id="markdown-шаблоны-templates" name="шаблоны-templates"></a>
 
 
 - Веб-сервер | [инструкция](https://serveradmin.ru/monitoring-web-servera-nginx-i-php-fpm-v-zabbix/#_nginx) | [шаблон](./SOFT/zabbix/zabbix-nginx-template.xml)
@@ -119,7 +111,6 @@ zcat /var/log/apache2/access.log.*.gz | cut -d " " -f 1 | sort | uniq -c | sort 
 - fail2ban | [git](https://github.com/rasperepodvipodvert/zabbix-fail2ban-discovery-)
 
 #### 1.4.2. Установка клиента
-<a id="markdown-установка-клиента" name="установка-клиента"></a>
 
 
 > Данная инструкция справедлива для debian, другие ОС смотрите пожалуйста на офф сайте!
@@ -154,7 +145,6 @@ apt-get install zabbix-agent
  ```bash
 
 # nano /etc/zabbix/zabbix_agent.conf
-<a id="markdown-nano-etczabbixzabbixagentconf" name="nano-etczabbixzabbixagentconf"></a>
 Server=127.0.0.1, zabbix.filatovz.ru
 ServerActive=zabbix.filatovz.ru
 LogFileSize=10
@@ -199,13 +189,11 @@ Hostname=server_name
  `systemctl daemon-reload`
 
 #### 1. Установка сервера
-<a id="markdown-установка-сервера" name="установка-сервера"></a>
 
 
  https://serveradmin.ru/ustanovka-i-nastroyka-zabbix-3-4-na-debian-9/
 
 #### 2. Установка сервера для docker-compose
-<a id="markdown-установка-сервера-для-docker-compose" name="установка-сервера-для-docker-compose"></a>
 
 
 [Инструкция](https://github.com/zabbix/zabbix-docker)
@@ -249,29 +237,24 @@ Hostname=server_name
  ```
 
 ### 1.5. KODI
-<a id="markdown-kodi" name="kodi"></a>
 
 
 [Установка и настройка Quasar на Kodi](https://niklan.net/blog/146)
 
 ### 1.6. ssh
-<a id="markdown-ssh" name="ssh"></a>
 
 
 [Практические советы, примеры и туннели SSH](https://habr.com/ru/post/435546/)
 
 ### 1.7. PROXMOX
-<a id="markdown-proxmox" name="proxmox"></a>
 
 
 - [virtio-drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/virtio-win.iso)
 
 ### 1.8. WINE
-<a id="markdown-wine" name="wine"></a>
 
 
 #### 1.8.1. Install on Linux Mint 19.3
-<a id="markdown-install-on-linux-mint-193" name="install-on-linux-mint-193"></a>
 
 
 ```bash
@@ -289,7 +272,6 @@ dpkg -i /tmp/libpng12.deb
 ```
 
 ### 1.9. Docker
-<a id="markdown-docker" name="docker"></a>
 
 ```shell script
 docker system df                      # использование диска Docker’ом в различных разрезах
@@ -298,18 +280,15 @@ docker system df                      # использование диска Do
 
 
 ## 2. OS
-<a id="markdown-os" name="os"></a>
 
 
 ### 2.1. Linux команды
-<a id="markdown-linux-команды" name="linux-команды"></a>
 
 
 
 - [Настройка ИБП](http://geckich.blogspot.com/2012/10/low-battery-ups-nut-network-ups-tools.html)
 
 #### 2.1.1. Journalctl - дистрибутивы с systemd
-<a id="markdown-journalctl---дистрибутивы-с-systemd" name="journalctl---дистрибутивы-с-systemd"></a>
 
 
 ```bash
@@ -329,14 +308,12 @@ journalctl -b -u zabbix-agent.service
 ```
 
 #### 2.1.2. contains a file system with errors check forced
-<a id="markdown-contains-a-file-system-with-errors-check-forced" name="contains-a-file-system-with-errors-check-forced"></a>
 
 ```shell script
 fsck -y /dev/sda1 ; reboot -f
 ```
 
 #### 2.1.3. Включаем SWAP в файле
-<a id="markdown-включаем-swap-в-файле" name="включаем-swap-в-файле"></a>
 
 ```shell script
 sudo dd if=/dev/zero of=/var/swapfile bs=1M count=2048
@@ -347,18 +324,24 @@ sudo swapon -a
 
 ```
 
+#### 2.1.4. Выключаем IPv6 (debian)
+```
+$ sudo nano /etc/sysctl.conf
+
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+```
+
 
 
 ## 3. DEVOPS
-<a id="markdown-devops" name="devops"></a>
 
 
 ### 3.1. Docker
-<a id="markdown-docker" name="docker"></a>
 
 
 #### 3.1.1. Установка Docker + Docker-Compose
-<a id="markdown-установка-docker--docker-compose" name="установка-docker--docker-compose"></a>
 
 
 ```bash
@@ -374,7 +357,6 @@ cd /docker
 ```
 
 #### 3.1.2. Docker-Compose как systemd сервис
-<a id="markdown-docker-compose-как-systemd-сервис" name="docker-compose-как-systemd-сервис"></a>
 
 
 ```systemd
@@ -438,7 +420,6 @@ WantedBy=multi-user.target
 ```
 
 ### 3.2. Ротация логов
-<a id="markdown-ротация-логов" name="ротация-логов"></a>
 
 
 Эта служба необходима для того, чтобы архивировать старые логи или удалять их с какой-то переодичностью.
@@ -480,7 +461,6 @@ create 640 root adm # сразу после ротации создать пус
 ```
 
 ### 3.3. Права на файлы
-<a id="markdown-права-на-файлы" name="права-на-файлы"></a>
 
 
 ```bash
@@ -489,65 +469,52 @@ find /var/www/test.com/public_html -type f -exec chmod 0660 {} \;
 ```
 
 ## 4. DEVELOP
-<a id="markdown-develop" name="develop"></a>
 
 
 ### 4.1. PHP
-<a id="markdown-php" name="php"></a>
 
 
 #### 4.1.1. Проверка отправки почты через sendmail
-<a id="markdown-проверка-отправки-почты-через-sendmail" name="проверка-отправки-почты-через-sendmail"></a>
 
 
 ```php
 <?php
-
 if (mail("ivan@filatovz1.ru", "заголовок", "текст")) {
     echo 'Отправлено';
 }
 else {
     echo 'Не отправлено';
 }
-
 ?>
 ```
 
 ### 4.2. PYTHON
-<a id="markdown-python" name="python"></a>
 
 
 #### 4.2.1. Ссылки
-<a id="markdown-ссылки" name="ссылки"></a>
 
 
 [Мега-Учебник FLASK](https://habr.com/post/346306/)
 
 ### 4.3. BITRIX
-<a id="markdown-bitrix" name="bitrix"></a>
 
 #### 4.3.1. Очистка кэша
-<a id="markdown-очистка-кэша" name="очистка-кэша"></a>
 ```shell script
 rm -rf ./bitrix/upload/resize_cache # Просто удаляете эту папку и битрикс потом сам пересоздаст кэш по мере потребления (https://qna.habr.com/q/564222)
 # Можно еще правильно настроить битрикс (https://iplogic.ru/baza-znaniy/ochistka-papki-upload-v-bitriks-cherez-agent/)
 ```
 
 #### 4.3.2. Ссылки
-<a id="markdown-ссылки" name="ссылки"></a>
 
 [Инструменты для разработки под 1С-Битрикс](https://habr.com/en/sandbox/73214/)
 
 ## 5. Написание документации
-<a id="markdown-написание-документации" name="написание-документации"></a>
 
 
 ### 5.1. Софт + плагины
-<a id="markdown-софт--плагины" name="софт--плагины"></a>
 
 
 #### 5.1.1. Visual Studio Code
-<a id="markdown-visual-studio-code" name="visual-studio-code"></a>
 
 
 - [Auto MarkdownTOC](https://github.com/huntertran/markdown-toc)
