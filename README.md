@@ -26,11 +26,12 @@
     - [1.7. PROXMOX](#17-proxmox)
     - [1.8. WINE](#18-wine)
       - [1.8.1. Install on Linux Mint 19.3](#181-install-on-linux-mint-193)
+    - [1.9. Docker](#19-docker)
   - [2. OS](#2-os)
     - [2.1. Linux команды](#21-linux-команды)
-      - [2.2. Journalctl - дистрибутивы с systemd](#22-journalctl---дистрибутивы-с-systemd)
-      - [contains a file system with errors check forced](#contains-a-file-system-with-errors-check-forced)
-      - [2.3. Включаем SWAP в файле](#23-Включаем-swap-в-файле)
+      - [2.1.1. Journalctl - дистрибутивы с systemd](#211-journalctl---дистрибутивы-с-systemd)
+      - [2.1.2. contains a file system with errors check forced](#212-contains-a-file-system-with-errors-check-forced)
+      - [2.1.3. Включаем SWAP в файле](#213-Включаем-swap-в-файле)
   - [3. DEVOPS](#3-devops)
     - [3.1. Docker](#31-docker)
       - [3.1.1. Установка Docker + Docker-Compose](#311-Установка-docker--docker-compose)
@@ -43,7 +44,8 @@
     - [4.2. PYTHON](#42-python)
       - [4.2.1. Ссылки](#421-Ссылки)
     - [4.3. BITRIX](#43-bitrix)
-      - [4.3.1. Ссылки](#431-Ссылки)
+      - [4.3.1. Очистка кэша](#431-Очистка-кэша)
+      - [4.3.2. Ссылки](#432-Ссылки)
   - [5. Написание документации](#5-Написание-документации)
     - [5.1. Софт + плагины](#51-Софт--плагины)
       - [5.1.1. Visual Studio Code](#511-visual-studio-code)
@@ -286,6 +288,15 @@ wget -q -O /tmp/libpng12.deb http://se.archive.ubuntu.com/ubuntu/pool/main/libp/
 dpkg -i /tmp/libpng12.deb
 ```
 
+### 1.9. Docker
+<a id="markdown-docker" name="docker"></a>
+
+```shell script
+docker system df                      # использование диска Docker’ом в различных разрезах
+```
+
+
+
 ## 2. OS
 <a id="markdown-os" name="os"></a>
 
@@ -297,7 +308,7 @@ dpkg -i /tmp/libpng12.deb
 
 - [Настройка ИБП](http://geckich.blogspot.com/2012/10/low-battery-ups-nut-network-ups-tools.html)
 
-#### 2.2. Journalctl - дистрибутивы с systemd
+#### 2.1.1. Journalctl - дистрибутивы с systemd
 <a id="markdown-journalctl---дистрибутивы-с-systemd" name="journalctl---дистрибутивы-с-systemd"></a>
 
 
@@ -316,13 +327,15 @@ journalctl --since=2016-12-20 --until=2016-12-21
 journalctl -b -u zabbix-agent.service
 
 ```
-#### contains a file system with errors check forced
+
+#### 2.1.2. contains a file system with errors check forced
+<a id="markdown-contains-a-file-system-with-errors-check-forced" name="contains-a-file-system-with-errors-check-forced"></a>
 
 ```shell script
 fsck -y /dev/sda1 ; reboot -f
 ```
 
-#### 2.3. Включаем SWAP в файле
+#### 2.1.3. Включаем SWAP в файле
 <a id="markdown-включаем-swap-в-файле" name="включаем-swap-в-файле"></a>
 
 ```shell script
@@ -513,8 +526,13 @@ else {
 ### 4.3. BITRIX
 <a id="markdown-bitrix" name="bitrix"></a>
 
+#### 4.3.1. Очистка кэша
+<a id="markdown-очистка-кэша" name="очистка-кэша"></a>
+```shell script
+rm -rf ./bitrix/upload/resize_cache # Просто удаляете эту папку и битрикс потом сам пересоздаст кэш по мере потребления
+```
 
-#### 4.3.1. Ссылки
+#### 4.3.2. Ссылки
 <a id="markdown-ссылки" name="ссылки"></a>
 
 [Инструменты для разработки под 1С-Битрикс](https://habr.com/en/sandbox/73214/)
