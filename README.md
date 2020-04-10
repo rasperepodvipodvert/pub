@@ -28,7 +28,9 @@
       - [1.8.1. Install on Linux Mint 19.3](#181-install-on-linux-mint-193)
   - [2. OS](#2-os)
     - [2.1. Linux команды](#21-linux-команды)
-    - [2.2. Journalctl - дистрибутивы с systemd](#22-journalctl---дистрибутивы-с-systemd)
+      - [2.2. Journalctl - дистрибутивы с systemd](#22-journalctl---дистрибутивы-с-systemd)
+      - [contains a file system with errors check forced](#contains-a-file-system-with-errors-check-forced)
+      - [2.3. Включаем SWAP в файле](#23-Включаем-swap-в-файле)
   - [3. DEVOPS](#3-devops)
     - [3.1. Docker](#31-docker)
       - [3.1.1. Установка Docker + Docker-Compose](#311-Установка-docker--docker-compose)
@@ -292,9 +294,10 @@ dpkg -i /tmp/libpng12.deb
 <a id="markdown-linux-команды" name="linux-команды"></a>
 
 
+
 - [Настройка ИБП](http://geckich.blogspot.com/2012/10/low-battery-ups-nut-network-ups-tools.html)
 
-### 2.2. Journalctl - дистрибутивы с systemd
+#### 2.2. Journalctl - дистрибутивы с systemd
 <a id="markdown-journalctl---дистрибутивы-с-systemd" name="journalctl---дистрибутивы-с-systemd"></a>
 
 
@@ -313,6 +316,25 @@ journalctl --since=2016-12-20 --until=2016-12-21
 journalctl -b -u zabbix-agent.service
 
 ```
+#### contains a file system with errors check forced
+
+```shell script
+fsck -y /dev/sda1 ; reboot -f
+```
+
+#### 2.3. Включаем SWAP в файле
+<a id="markdown-включаем-swap-в-файле" name="включаем-swap-в-файле"></a>
+
+```shell script
+sudo dd if=/dev/zero of=/var/swapfile bs=1M count=2048
+sudo chmod 600 /var/swapfile
+sudo mkswap /var/swapfile
+echo /var/swapfile none swap defaults 0 0 | sudo tee -a /etc/fstab
+sudo swapon -a
+
+```
+
+
 
 ## 3. DEVOPS
 <a id="markdown-devops" name="devops"></a>
