@@ -530,6 +530,7 @@ else {
 <a id="markdown-очистка-кэша" name="очистка-кэша"></a>
 ```shell script
 rm -rf ./bitrix/upload/resize_cache # Просто удаляете эту папку и битрикс потом сам пересоздаст кэш по мере потребления (https://qna.habr.com/q/564222)
+# Можно еще правильно настроить битрикс (https://iplogic.ru/baza-znaniy/ochistka-papki-upload-v-bitriks-cherez-agent/)
 ```
 
 #### 4.3.2. Ссылки
