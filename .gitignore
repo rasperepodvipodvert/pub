@@ -1,3 +1,5 @@
 .idea
 desktop.ini
 ansible.cfg
+/ansible/roles
+*.retry

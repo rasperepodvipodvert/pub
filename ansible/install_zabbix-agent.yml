@@ -1,0 +1,21 @@
+- hosts: dev.www.ru
+  become: yes
+  roles:
+     - role: dj-wasabi.zabbix-agent
+       zabbix_agent_version: 4.4
+       zabbix_agent_server: zabbix.filatovz.ru
+       zabbix_agent_serveractive: zabbix.filatovz.ru
+       zabbix_agent_allowroot: 1
+       zabbix_agent_enableremotecommands: 1
+#       zabbix_url: http://zabbix.filatovz.ru
+#       zabbix_api_use: true # use zabbix_api_create_hosts and/or zabbix_api_create_hostgroup from 0.8.0
+#       zabbix_api_user:
+#       zabbix_api_pass:
+#       zabbix_create_host: docker-01.yarperspektiva.ru
+       zabbix_host_groups:
+         - Linux Servers
+       zabbix_link_templates:
+         - Template OS Linux
+#       zabbix_macros:
+#         - macro_key: apache_type
+#           macro_value: reverse_proxy
