@@ -2,7 +2,8 @@
 version: "2.1"
 services:
   duplicati:
-    image: linuxserver/duplicati
+    # image: linuxserver/duplicati
+    build: ./
     container_name: duplicati
     environment:
       - PUID=1000 # user: abc

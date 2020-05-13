@@ -88,6 +88,7 @@
   ```bash
   docker-compose up -d
   ```
+- Добавил [Dockerfile](./Dockerfile) для внесения изменений в стандартный [image](https://hub.docker.com/r/linuxserver/duplicati) Duplicati. Теперь можно еще и MysqlDump делать прямо из Duplicati
 
 ### 1.3. APACHE
 
