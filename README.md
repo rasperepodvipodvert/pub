@@ -84,7 +84,7 @@
 **Установка:**
 
 - Сохраняем у себя [docker-compose.yml](./docker/duplicati/docker-compose.yml)
-- Запускаем из директории (docker и docker-compose должен быть уже установлен):
+- Запускаем из директории где лежит [docker-compose.yml](./docker/duplicati/docker-compose.yml) (docker и docker-compose должен быть уже установлен):
   ```bash
   docker-compose up -d
   ```
