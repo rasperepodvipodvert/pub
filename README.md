@@ -562,6 +562,7 @@ rm -rf ./bitrix/upload/resize_cache # Просто удаляете эту па�
 
 ```
 https://{bitrix_url}/rest/{user_id}/{web_hook_key}/task.item.list.json?ORDER[]=&FILTER[RESPONSIBLE_ID]={user_id}}&FILTER[%3CREAL_STATUS]=4&PARAMS[]=&SELECT[]=*
+FILTER[GROUP_ID]=номер_группы
 ```
 
 
