@@ -595,6 +595,7 @@ singleTask-updated     | result.CHANGED_DATE
 singleTask-created     | result.CREATED_DATE
 ```
 
+![](https://hsto.org/webt/re/9e/b7/re9eb7r1mgu0crwpkapyvjovaea.png)
 
 ## 5. Написание документации
 
