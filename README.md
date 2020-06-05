@@ -306,6 +306,18 @@ docker system df                      # использование диска Do
 
 ## 2. OS
 
+### Windows
+
+#### Синхронизация времени
+
+```cmd
+net stop w32time
+w32tm /unregister
+w32tm /register
+net start w32time
+w32tm /resync
+```
+
 
 ### 2.1. Linux команды
 
@@ -546,6 +558,11 @@ rm -rf ./bitrix/upload/resize_cache # Просто удаляете эту па�
 
 ```
 
+#### Добавляем задачи из битрикса в idea
+
+```
+https://{bitrix_url}/rest/{user_id}/{web_hook_key}/task.item.list.json?ORDER[]=&FILTER[RESPONSIBLE_ID]={user_id}}&FILTER[%3CREAL_STATUS]=4&PARAMS[]=&SELECT[]=*
+```
 
 
 ## 5. Написание документации
