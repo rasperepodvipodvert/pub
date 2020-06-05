@@ -560,9 +560,39 @@ rm -rf ./bitrix/upload/resize_cache # Просто удаляете эту па�
 
 #### Добавляем задачи из битрикса в idea
 
+##### Переменные:
+
 ```
+bitrix_url - url вашего портала [sysadmin.bitrix24.ru]
+group_id - имя группы [1]
+user_id - id вашего пользователя [1] (админ обычно №1)
+web_hook_key - ключ входящего вебхука
+```
+
+##### JSON URL
+
+```
+# Все открытые задачи
 https://{bitrix_url}/rest/{user_id}/{web_hook_key}/task.item.list.json?ORDER[]=&FILTER[RESPONSIBLE_ID]={user_id}}&FILTER[%3CREAL_STATUS]=4&PARAMS[]=&SELECT[]=*
-FILTER[GROUP_ID]=номер_группы
+
+# Все открытые задачи только из определенной группы
+https://{bitrix_url}/rest/{user_id}/{web_hook_key}/task.item.list.json?ORDER[]=&FILTER[RESPONSIBLE_ID]={user_id}}&FILTER[%3CREAL_STATUS]=4&PARAMS[]=&SELECT[]=*&FILTER[GROUP_ID]={group_id}
+```
+
+##### Сопоставление полей:
+
+```phpregexp
+tasks                  | result[*]
+id                     | ID
+summary                | TITLE
+description            | DESCRIPTION
+updated                | CHANGED_DATE
+created                | CREATED_DATE
+singleTask-id          | result.ID
+singleTask-summary     | result.TITLE
+singleTask-description | result.DESCRIPTION
+singleTask-updated     | result.CHANGED_DATE
+singleTask-created     | result.CREATED_DATE
 ```
 
 
